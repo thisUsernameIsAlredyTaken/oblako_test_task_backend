@@ -6,11 +6,11 @@ class TodosController < ApplicationController
       category = Category.new(title: todo_params[:category_title])
       category.save
     end
-    todo = Todo.new(title: todo_params[:title], is_completed: false, category_id: category[:id])
+    todo = Todo.new(text: todo_params[:text], is_completed: false, category_id: category[:id])
     todo.save
   end
 
   private def todo_params
-    params.require(:todo).permit(:title, :category_title)
+    params.require(:todo).permit(:text, :category_title)
   end
 end
