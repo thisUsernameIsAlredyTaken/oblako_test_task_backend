@@ -3,7 +3,6 @@ class TodosController < ApplicationController
   def create
     category = Category.find_by title: todo_params[:category_title]
     if category == nil
-      puts "category id null"
       category = Category.new(title: todo_params[:category_title])
       category.save
     end

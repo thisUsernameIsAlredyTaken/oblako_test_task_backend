@@ -1,6 +1,9 @@
 class ProjectController < ApplicationController
   def index
+    categories = Category.select("id, title, NULL AS todos")
 
-    render :json => {:message => "ok"}
+    render :json => categories, :include => [
+      :todos => {:only => [:id, :text, :is_completed]}
+    ]
   end
 end
