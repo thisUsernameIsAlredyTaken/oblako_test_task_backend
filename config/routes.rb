@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  #resources :todos
-  resources :categories
 
   post 'todos' => 'todos#create'
-
-#  post 'todos' => ''
-
+  patch 'projects/:category_id/todo/:todo_id' => 'project#edit'
   get 'projects' => 'project#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
