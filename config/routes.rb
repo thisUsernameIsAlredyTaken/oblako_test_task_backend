@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'projects', to: 'project#index'
+  #resources :todos
+  resources :categories
+
+  post 'todos' => 'todos#create'
+
+#  post 'todos' => ''
+
+  get 'projects' => 'project#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
